@@ -1,10 +1,10 @@
-// Store our API endpoint inside queryUrl
+// Create a variable to store API url
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
 
-// Tectonic plates link
+// Create a variable to store Tectonic plate url
 var TectonicPlatesUrl = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json"
 
-// Perform a GET request to the query URL
+// Perform a GET request to the queryURL
 d3.json(queryUrl, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
   createFeatures(data.features);
@@ -12,8 +12,8 @@ d3.json(queryUrl, function(data) {
 
 function createFeatures(earthquakeData) {       
 
-  // Create a GeoJSON layer containing the features array on the earthquakeData object
-  // Run the onEachFeature function once for each piece of data in the array
+  // Create a GeoJSON layer containing the features array on the earthquakeData object then
+  // run the onEachFeature function once for each piece of data in the array
   var earthquakes = L.geoJson(earthquakeData, {
     onEachFeature: function (feature, layer){
       layer.bindPopup("<h3>" + feature.properties.place + "<br> Magnitude: " + feature.properties.mag +
@@ -27,29 +27,29 @@ function createFeatures(earthquakeData) {
           fillColor: getColor(feature.properties.mag),
           fillOpacity: .7,
           stroke: true,
-          color: "black",
-          weight: .5
+          color: "red",
+          weight: .8
       })
     }
   });
 
-  // Sending our earthquakes layer to the createMap function
+  // Send earthquakes layer to the createMap function
   createMap(earthquakes)
 }
 
 function createMap(earthquakes) {
 
   var satelliteMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?"+
-    "access_token=pk.eyJ1Ijoic3l1MjAxOCIsImEiOiJjamNzYmFjbmEwYWJqMzNxcWJ6dnhoaGlxIn0.qFH3N3Fi6rXHsoGsi8BtjA");
+    "access_token=pk.eyJ1IjoidWNoZWoiLCJhIjoiY2tjMDIzZ3YwMGYzZzJ5cnUwc20za3JhZCJ9."+"KAZKlIseN_1MrRbw4xmtVA");
 
 
   // Define streetmap and darkmap layers
   var outdoorMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/256/{z}/{x}/{y}?"+
-    "access_token=pk.eyJ1Ijoic3l1MjAxOCIsImEiOiJjamNzYmFjbmEwYWJqMzNxcWJ6dnhoaGlxIn0."+"qFH3N3Fi6rXHsoGsi8BtjA"); 
+    "access_token=pk.eyJ1IjoidWNoZWoiLCJhIjoiY2tjMDIzZ3YwMGYzZzJ5cnUwc20za3JhZCJ9."+"KAZKlIseN_1MrRbw4xmtVA"); 
    
 
   var lightMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?"+
-    "access_token=pk.eyJ1Ijoic3l1MjAxOCIsImEiOiJjamNzYmFjbmEwYWJqMzNxcWJ6dnhoaGlxIn0."+"qFH3N3Fi6rXHsoGsi8BtjA");
+    "access_token=pk.eyJ1IjoidWNoZWoiLCJhIjoiY2tjMDIzZ3YwMGYzZzJ5cnUwc20za3JhZCJ9."+"KAZKlIseN_1MrRbw4xmtVA");
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
@@ -102,7 +102,7 @@ function createMap(earthquakes) {
                grades = [0, 1, 2, 3, 4, 5],
                labels = [];
 
-   // loop through our density intervals and generate a label with a colored square for each interval
+   // Loop through our density intervals and generate a label with a colored square for each interval
      for (var i = 0; i < grades.length; i++) {
          div.innerHTML +=
              '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -127,4 +127,3 @@ function getRadius(value){
   return value*40000
 }
 
-// bootstrap with mapbox  (https://github.com/charliedotau/mapbox-gl-js-bootstrap-boilerplate)
