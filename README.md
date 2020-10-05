@@ -19,4 +19,4 @@
 
 
 ### Tools 
-######  Python, JavaScript(Leaflet v1.6.0 and D3), HTML/CSS/Bootstrap, Visual Studio Code, Mapbox.
+######  Python, JavaScript(Leaflet v1.6.0 and D3), Visual Studio Code, Mapbox.
