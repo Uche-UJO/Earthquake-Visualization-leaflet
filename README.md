@@ -15,8 +15,8 @@
 ###### To illustrate the relationship between tectonic plates and earthquake occurences, pull another set of data from https://github.com/fraxen/tectonicplates and visualize it along side original dataset.
 ###### Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently. Then add layer controls to map.
 
-###### Website: https://uche-ujo.github.io/leaflet-challenge/Leaflet-Step-1/index.html
+###### Website: https://uche-ujo.github.io/Earthquake-Visualization-leaflet/Leaflet-Step-1/index.html
 
 
 ### Tools 
-######  Python, JavaScript(Leaflet v1.6.0 and D3), Visual Studio Code, Mapbox.
+######  Python, JavaScript(Leaflet v1.6.0 and D3), Html, CSS, Visual Studio Code, Mapbox.
