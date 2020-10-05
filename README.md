@@ -3,7 +3,7 @@
 ### Problem
 
 ###### Create interactive map visualizing a 30-day worldwide earthquake data. Also show earthquakes' relationship with tectonic plates.
-###### Source data from https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+
 
 
 ### Process
