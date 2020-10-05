@@ -80,7 +80,7 @@ function createMap(earthquakes) {
       // Adding our geoJSON data, along with style information, to the tectonicplates layer.
       L.geoJson(plateData, {
         color: "green",
-        weight: 2
+        weight: 1
       })
       .addTo(tectonicPlates);
   });
