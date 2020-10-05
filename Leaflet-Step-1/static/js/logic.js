@@ -25,9 +25,9 @@ function createFeatures(earthquakeData) {
       return new L.circle(latlng,
         {radius: getRadius(feature.properties.mag),
           fillColor: getColor(feature.properties.mag),
-          fillOpacity: .7,
+          fillOpacity: .3,
           stroke: true,
-          color: "red",
+          color: "blue",
           weight: .8
       })
     }
